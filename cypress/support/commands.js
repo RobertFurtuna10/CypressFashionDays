@@ -21,18 +21,14 @@
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 
 Cypress.Commands.add('SearchProduct', (product) => {
-  cy.get('#search-input').type(`${product}{enter}`, { force: true });
+  cy.get('#search-input').type(`${product}{enter}`, { force: true } );
 })
-
-
 Cypress.Commands.add('selectProductAndAddToCart', (index) => {
   // Select the for wich  product image you want 
   cy.get("img[class='lazy product-over lazy-not-on-mobile']").eq(index).click();
   // Click on the buy box
   cy.get('#buy-box').click();
 });
-
-
 
 //
 //
