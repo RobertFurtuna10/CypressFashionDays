@@ -49,8 +49,7 @@ describe('FashionDays Search Functionality', () => {
       });
       it('Test remove product from cart  ', () => {
         cy.SearchProduct("ochelari de soare")
-        cy.get("img[class='lazy product-over lazy-not-on-mobile']").eq(0).click();
-        cy.get('#buy-box').click()
+        cy.selectProductAndAddToCart(4)
         cy.get('#customer-basket > .container-icon > .icon').click()
         cy.get('.cart-product-remove').click()
         cy.get('.empty-cart-bnpl-toggle h3').then((element)=>{
