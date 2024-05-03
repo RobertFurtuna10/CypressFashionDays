@@ -28,8 +28,6 @@ Available in both cloud and on-premise options, FashionDays is the ideal solutio
 
 # Project Structure 
 
-![Structure](https://github.com/AdrianPricopie/CypressAutomation/blob/main/Screenshot%202024-03-24%20at%2023.36.16.png)
-
 - **cypress/**: This is the main directory of the Cypress project.
 - **cypress/fixtures/**: Static test data, such as JSON files, is stored here.
 - **cypress/integration/**: All spec files for tests are stored here. Inside this directory, each subdirectory corresponds to a specific testing module.
