@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
-        cy.fixture('example').then(function (data) {
+        cy.fixture('DataTest').then(function (data) {
             this.data = data;
             cy.visit(this.data.url);
         })
@@ -9,9 +9,13 @@ describe('FashionDays Search Functionality', () => {
     })
     it('Test Product add to cart ', () => {
         cy.SearchProduct('ochelari de soare')
+        
         cy.selectProductAndAddToCart(1)
+        
         cy.get('#customer-basket > .container-icon > .icon').click()
+        
         cy.get('.cart-product-box').should("be.visible")
+
       });
       
       
@@ -40,14 +44,12 @@ describe('FashionDays Search Functionality', () => {
             const totalPrice = parseFloat(totalPriceText.replace('lei', '').trim()); // Convertim în float și eliminăm "lei" și spațiile
             const suma = sum_of_products.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
             // Verificăm suma produselor cu prețul total
-            // console.log('Suma produselor:', sum_of_products);
-            // console.log('Prețul total:', totalPrice);
-            // console.log('',suma)
+
             expect(suma).to.equal(totalPrice);
         });
         
       });
-      it('Test remove product from cart  ', () => {
+      it('Test remove product from cart', () => {
         cy.SearchProduct("ochelari de soare")
         cy.selectProductAndAddToCart(4)
         cy.get('#customer-basket > .container-icon > .icon').click()

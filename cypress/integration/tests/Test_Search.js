@@ -1,14 +1,12 @@
 describe('FashionDays Search Functionality', () => {
     
     // Runs before each test
-    beforeEach(()=> {
-        
-        //Visit the Fashiondays websites
-        cy.visit('https://www.fashiondays.ro/');
-        
+    beforeEach(()=> {    
         // Load data from the fixture file
-        cy.fixture('example').then(function(data) {
+        cy.fixture('DataTest').then(function(data) {
            this.data = data;
+           cy.visit(this.data.url);
+
         });
 
     });
@@ -38,6 +36,8 @@ describe('FashionDays Search Functionality', () => {
         cy.get('#paginationContainerHeader > #paginationLinks > nav > .pagination > :nth-child(3) > .paginationLink').click();
         
         // Verify if the URL contains the correct page
-        cy.url().should('include', `${this.data.ValidProduct[0]}&page=2`);
+
+        cy.VerifyIncludesInUrl(`${this.data.ValidProduct[0]}&page=2`)
+     
     });
 });

@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
-        cy.fixture('example').then(function (data) {
+        cy.fixture('DataTest').then(function (data) {
             this.data = data;
             cy.visit(this.data.url);
         })

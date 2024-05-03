@@ -29,6 +29,11 @@ Cypress.Commands.add('selectProductAndAddToCart', (index) => {
   // Click on the buy box
   cy.get('#buy-box').click();
 });
+Cypress.Commands.add('VerifyIncludesInUrl', (text) => {
+  cy.url().should('include',text);
+});
+
+//  cy.url().should('include', 'fashiondays');
 
 //
 //
