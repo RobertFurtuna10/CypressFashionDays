@@ -69,15 +69,15 @@ This report outlines the testing conducted on 3 May 2024 and documents all the f
 ![TestsReport](https://github.com/RobertFurtuna10/CypressFashionDays/blob/main/Screenshot%202024-05-03%20at%2013.23.16.png)
 
 # Conclusion
-
-Test Coverage: The test suite covers various aspects of the FashionDays website, including the main page functionalities, search functionality, filtering options, adding/removing products from the cart and wishlist, navigating between search result pages, and verifying URLs.
-Positive Scenarios: The tests verify positive scenarios such as checking if elements are visible on the main page, ensuring correct URLs, filtering products by brand, color, and price, adding products to the cart and wishlist, and checking if search results return the expected products.
-Negative Scenarios: Negative scenarios are also covered, such as searching for non-existent products and verifying appropriate error messages, removing products from the cart and wishlist, and ensuring the wishlist is empty after removal.
-Assertions and Verifications: The test suite includes various assertions and verifications to ensure that the website behaves as expected. These include checking text content, verifying URLs, comparing product prices, and confirming the presence of specific elements.
-Modularization and Reusability: The test suite demonstrates good practices by modularizing the code, using fixtures for test data, and creating custom commands like SearchProduct and VerifyIncludesInUrl, which enhance reusability and maintainability.
-UI Interactions: Tests involve interactions with UI elements such as clicking buttons, searching for products, selecting filters, and verifying visual changes based on user actions.
-Data-Driven Testing: The test suite uses data-driven testing by fetching test data from fixtures, which allows for easy parameterization and scalability of tests.
-Reporting: While there's no explicit mention of reporting in the provided code, integrating a reporting mechanism such as mochawesome could enhance test visibility and provide detailed HTML reports for better analysis.
+**cypress/**:
+- **Test Coverage/**: The test suite covers various aspects of the FashionDays website, including the main page functionalities, search functionality, filtering options, adding/removing products from the cart and wishlist, navigating between search result pages, and verifying URLs.
+- **Positive Scenarios/**: The tests verify positive scenarios such as checking if elements are visible on the main page, ensuring correct URLs, filtering products by brand, color, and price, adding products to the cart and wishlist, and checking if search results return the expected products.
+- **Negative Scenarios/**: Negative scenarios are also covered, such as searching for non-existent products and verifying appropriate error messages, removing products from the cart and wishlist, and ensuring the wishlist is empty after removal.
+- **Assertions and Verifications/**: The test suite includes various assertions and verifications to ensure that the website behaves as expected. These include checking text content, verifying URLs, comparing product prices, and confirming the presence of specific elements.
+- **Modularization and Reusability/**: The test suite demonstrates good practices by modularizing the code, using fixtures for test data, and creating custom commands like SearchProduct and VerifyIncludesInUrl, which enhance reusability and maintainability.
+- **UI Interactions/**: Tests involve interactions with UI elements such as clicking buttons, searching for products, selecting filters, and verifying visual changes based on user actions.
+- **Data-Driven Testing/**: The test suite uses data-driven testing by fetching test data from fixtures, which allows for easy parameterization and scalability of tests.
+- **Reporting/**: While there's no explicit mention of reporting in the provided code, integrating a reporting mechanism such as mochawesome could enhance test visibility and provide detailed HTML reports for better analysis.
 
 Overall, the test suite appears comprehensive, covering a wide range of functionalities and scenarios, and employing best practices for automated testing. Further enhancements could include adding more assertions for edge cases, implementing test retries for flaky tests, and integrating with continuous integration tools for automated test execution.
 
