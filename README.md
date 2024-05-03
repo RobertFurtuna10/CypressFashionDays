@@ -35,3 +35,29 @@ Available in both cloud and on-premise options, FashionDays is the ideal solutio
 - **cypress/integration/Tests/**: All the tests are stored here.
 - **cypress/reports/**: This directory is where Cypress generates test reports.
 
+## Getting Started  :pushpin:
+
+1.**Prerequisites:**
+
+Make sure you have installed the following prerequisites on your development machine:
+
+| OS      | Node                                    |
+| ------- | --------------------------------------- |
+| Windows | `winget install --id OpenJS.NodeJS.LTS` |
+|         | ` npm i --save-dev cypress-mochawesome-reporter`        |
+| macOS   | `brew install node@20`    
+|         | ` npm i --save-dev cypress-mochawesome-reporter`        |
+
+
+2. **Clone the Repository:**
+
+    ```bash
+    git clone 
+    ```
+
+4. **Run all the tests with html report:**
+
+    ```bash
+    npx cypress run
+    ```
+
