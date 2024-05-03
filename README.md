@@ -52,7 +52,7 @@ Make sure you have installed the following prerequisites on your development mac
 2. **Clone the Repository:**
 
     ```bash
-    git clone 
+    git clone https://github.com/RobertFurtuna10/CypressFashionDays.git
     ```
 
 4. **Run all the tests with html report:**
