@@ -69,7 +69,7 @@ This report outlines the testing conducted on 3 May 2024 and documents all the f
 ![TestsReport](https://github.com/RobertFurtuna10/CypressFashionDays/blob/main/Screenshot%202024-05-03%20at%2013.23.16.png)
 
 # Conclusion
-**cypress/**:
+
 - **Test Coverage/**: The test suite covers various aspects of the FashionDays website, including the main page functionalities, search functionality, filtering options, adding/removing products from the cart and wishlist, navigating between search result pages, and verifying URLs.
 - **Positive Scenarios/**: The tests verify positive scenarios such as checking if elements are visible on the main page, ensuring correct URLs, filtering products by brand, color, and price, adding products to the cart and wishlist, and checking if search results return the expected products.
 - **Negative Scenarios/**: Negative scenarios are also covered, such as searching for non-existent products and verifying appropriate error messages, removing products from the cart and wishlist, and ensuring the wishlist is empty after removal.
