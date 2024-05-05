@@ -1,4 +1,6 @@
 /// <reference types="Cypress" />
+import CartPage from "./PageObject/CartPage";
+
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
@@ -21,32 +23,26 @@ describe('FashionDays Search Functionality', () => {
       
       it('Verify add to cart products sum', () => {
         cy.SearchProduct('ceas')
+
         cy.selectProductAndAddToCart(0)
         
-        cy.SearchProduct('geanta') ; // Redeschidem pagina de start pentru a adăuga un alt produs
+        cy.SearchProduct('geanta'); // Redeschidem pagina de start pentru a adăuga un alt produs
+
         cy.selectProductAndAddToCart(1)
+        
         cy.get('#buy-box').click();
       
         cy.get('#customer-basket > .container-icon').click()
 
-        let sum_of_products = [];
-
-        // Colectăm prețurile produselor
-        cy.get('.sale-price').each((element) => {
-            cy.wrap(element).invoke('text').then(priceText => {
-                const priceTitleProduct = parseFloat(priceText.replace('lei', '').trim()); // Convertim în float și eliminăm "lei" și spațiile
-                sum_of_products.push(priceTitleProduct);
-            });
-        });
+        const productPrices = CartPage.getProductPrices()
         
-        // Obținem prețul total și verificăm suma produselor cu acesta
-        cy.get('.cart-summary-box-total > :nth-child(2)').invoke('text').then(totalPriceText => {
-            const totalPrice = parseFloat(totalPriceText.replace('lei', '').trim()); // Convertim în float și eliminăm "lei" și spațiile
-            const suma = sum_of_products.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-            // Verificăm suma produselor cu prețul total
+        const totalPrice = CartPage.getTotalPrice();
 
-            expect(suma).to.equal(totalPrice);
-        });
+        totalPrice.then(actualTotalPrice => {
+          const expectedTotalPrice = productPrices.reduce((acc, curr) => acc + curr, 0);
+          expect(actualTotalPrice).to.equal(expectedTotalPrice);
+      });
+
         
       });
       it('Test remove product from cart', () => {

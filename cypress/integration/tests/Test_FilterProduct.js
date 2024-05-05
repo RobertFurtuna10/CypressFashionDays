@@ -60,7 +60,6 @@ describe('FashionDays Search Functionality', () => {
     it('Filter product by multiple colors', () =>{
         
         cy.SearchProduct('hanorac')
-
         
         cy.get('[data-gtm-name="YELLOW"]').click({force: true})
         

@@ -1,4 +1,7 @@
 /// <reference types="Cypress" />
+
+import ProductCatalogue from "./PageObject/ProductCatalogue";
+
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
@@ -9,18 +12,16 @@ describe('FashionDays Search Functionality', () => {
     })
       it('Test add product to wishlist', () => {
         cy.SearchProduct('Geanta')
-        cy.get(".js-add-to-wishlist").eq(2).click()
-        cy.get('#myFirstFav > .vertical-alignment-helper > .modal-dialog > .modal-content > .modal-header > .modal-title').then((element) => {
-            const resultText = element.text().trim().replace(/\s+/g, ' ');
-            const expected_result = "Acest produs a fost adaugat in lista ta de favorite!"
-            expect(resultText).to.equal(expected_result);
-
-      });
+        ProductCatalogue.ClickAddToWishlistByIndex(2);
+        ProductCatalogue.GetSuccesfullMessagePopAddWishlist().then((ResultText) => {
+            const expected_result = "Acest produs a fost adaugat in lista ta de favorite!";
+            expect(ResultText).to.be.equal(expected_result);
+        });
 
     })
     it('Test add product to wishlist', () => {
         cy.SearchProduct('Geanta')
-        cy.get(".js-add-to-wishlist").eq(2).click()
+        ProductCatalogue.ClickAddToWishlistByIndex(2)
         cy.get('#myFirstFav > .vertical-alignment-helper > .modal-dialog > .modal-content > .modal-header > #rce-sent-close > .icon-close-x').click()
         cy.get('#wishlist-top-menu').click()
         cy.get("[name='move-to-cart-products']").should("be.visible")
@@ -50,6 +51,4 @@ describe('FashionDays Search Functionality', () => {
     })
 
 
-
-
-});
+})

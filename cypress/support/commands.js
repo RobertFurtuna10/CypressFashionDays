@@ -33,6 +33,7 @@ Cypress.Commands.add('VerifyIncludesInUrl', (text) => {
   cy.url().should('include',text);
 });
 
+
 //  cy.url().should('include', 'fashiondays');
 
 //
