@@ -5,6 +5,8 @@ import * as locators from '../Utils/WishlistPageLocators'
     const PageNumberTwo = '#paginationContainerHeader > #paginationLinks > nav > .pagination > :nth-child(3) > .paginationLink'
     const CartIcon = '#customer-basket > .container-icon'
     const ProductTitleBrand = '.cart-product-box'
+    const columbiaBrand = '#brandOpt_20743 > .filter-link > .ui-left'
+    const nameOfProducts = '.product-card-brand'
 
 class ProductCataloguePage{
 
@@ -49,7 +51,12 @@ class ProductCataloguePage{
         cy.get(ProductTitleBrand).should("be.visible")
     }
 
-
+    selectColumbiaBrand(){
+        cy.get(columbiaBrand).click({force: true})
+    }
+    veirfyNameOfProducts(){
+        cy.get(nameOfProducts).should('contain', 'Columbia')
+    }
 }
 
 export default new ProductCataloguePage();

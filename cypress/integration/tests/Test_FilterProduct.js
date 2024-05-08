@@ -5,20 +5,17 @@ describe('FashionDays Search Functionality', () => {
         cy.visit(Cypress.env('url'))
     })
 
-    it("Should Filter product by brand", () => {
+    it("Should Filter product by Columbia brand", () => {
         
         cy.SearchProduct('Tricou')
 
         // cy.get("a[data-title='Treninguri']").scrollIntoView()
+        // cy.wait(2000)
         
-        cy.get('#brandOpt_20743 > .filter-link > .ui-left').as('ColumbiaBrand')
-        
-        // Introducem textul 'tricou' în căutare și apăsăm Enter
-        
-        cy.get('@ColumbiaBrand').click({force: true})
+        ProductCatalogue.selectColumbiaBrand()
+        ProductCatalogue.veirfyNameOfProducts()
         
        
-        cy.get('.product-card-brand').should('contain', 'Columbia')
       
     })
 
