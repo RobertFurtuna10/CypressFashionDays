@@ -3,7 +3,7 @@ describe('FashionDays main page', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;
-            cy.visit(this.data.RegisterUrl);
+            cy.visit(Cypress.env('registerUrl'));
         })
     })
     it('Check if I can create an account', function() {
@@ -18,7 +18,6 @@ describe('FashionDays main page', () => {
         RegisterPage.EnterPassword(this.data.Password)
         RegisterPage.ClickTermCheckbox();
         RegisterPage.ClickRegisterButton();
-        cy.wait(3000)
         RegisterPage.checkEmailWithSubject("Mai ai putin siii... gata!")
 
      })
@@ -27,8 +26,8 @@ describe('FashionDays main page', () => {
         RegisterPage.EnterPassword(this.data.Password)
         RegisterPage.ClickTermCheckbox();
         RegisterPage.ClickRegisterButton();
-        cy.wait(6000)
-        RegisterPage.checkConfirmationText("Contul tau a fost confirmat.",'women')     
+        cy.wait(4000)
+        RegisterPage.checkConfirmationText("Contul tau a fost confirmat.",'barbat')     
     })
     it('Check if you get an error when you try to register with empty fields and checkboxes', function() {
         RegisterPage.ClickRegisterButton();

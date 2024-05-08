@@ -1,22 +1,22 @@
 /// <reference types="Cypress" />
 import CartPage from "./PageObject/CartPage";
-
+import ProductCatalogue from "./PageObject/ProductCatalogue";
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;
-            cy.visit(this.data.url);
+            cy.visit(Cypress.env('url'));
         })
 
     })
-    it('Test Product add to cart ', () => {
+    it('Check if i can add to cart a product', () => {
         cy.SearchProduct('ochelari de soare')
         
         cy.selectProductAndAddToCart(1)
         
-        cy.get('#customer-basket > .container-icon > .icon').click()
+        ProductCatalogue.ClickCartIcon();
         
-        cy.get('.cart-product-box').should("be.visible")
+        CartPage.VerifyProductExistInCart();
 
       });
       
@@ -29,10 +29,8 @@ describe('FashionDays Search Functionality', () => {
         cy.SearchProduct('geanta'); // Redeschidem pagina de start pentru a adăuga un alt produs
 
         cy.selectProductAndAddToCart(1)
-        
-        cy.get('#buy-box').click();
       
-        cy.get('#customer-basket > .container-icon').click()
+        ProductCatalogue.ClickCartIcon();
 
         const productPrices = CartPage.getProductPrices()
         
@@ -46,14 +44,17 @@ describe('FashionDays Search Functionality', () => {
         
       });
       it('Test remove product from cart', () => {
+        
         cy.SearchProduct("ochelari de soare")
+        
         cy.selectProductAndAddToCart(4)
-        cy.get('#customer-basket > .container-icon > .icon').click()
-        cy.get('.cart-product-remove').click()
-        cy.get('.empty-cart-bnpl-toggle h3').then((element)=>{
-            const Cart = element.text().trim()
-            expect(Cart).to.equal("Cosul tau e gol acum, hai sa il umpli cu tot ce vrei sa porti maine!")
-        })
+        
+        ProductCatalogue.ClickCartIcon()
+       
+        CartPage.ClickRemoveItemFromCart()
+
+        CartPage.verifyEmptyCartMessage()
+
       });
 
       it('Test add product to wishlist from my cart ', () => {

@@ -1,14 +1,16 @@
 /// <reference types="Cypress" />
+
+import MainPage from "./PageObject/MainPage";
 describe('FashionDays main page', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;
-            cy.visit(this.data.url);
+            cy.visit(Cypress.env('url'));
         })
     })
 
     it('Check if we are on the main page', function() {
-      cy.get('.hidden-xs > img').should('be.visible')
+        MainPage.VerifyLogo();
     })
 
     it('Check if genres names exists on the main page', function() {
@@ -22,7 +24,6 @@ describe('FashionDays main page', () => {
     
     it('Check if the url for FashionDays page is correct', () => {
         cy.VerifyIncludesInUrl('fashiondays')
-        // cy.url().should('include', 'fashiondays');
     });
 
     it('Check if search box exists on the main page', () => {

@@ -5,7 +5,7 @@ describe('FashionDays Search Functionality', () => {
         // Load data from the fixture file
         cy.fixture('DataTest').then(function(data) {
            this.data = data;
-           cy.visit(this.data.url);
+           cy.visit(Cypress.env("url"));
 
         });
 

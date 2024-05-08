@@ -26,7 +26,7 @@ Cypress.Commands.add('SearchProduct', (product) => {
 Cypress.Commands.add('selectProductAndAddToCart', (index) => {
   // Select the for wich  product image you want 
   cy.get("img[class='lazy product-over lazy-not-on-mobile']").eq(index).click();
-  // Click on the buy box
+  // Click on the add to cart button
   cy.get('#buy-box').click();
 });
 Cypress.Commands.add('VerifyIncludesInUrl', (text) => {
@@ -34,14 +34,10 @@ Cypress.Commands.add('VerifyIncludesInUrl', (text) => {
 });
 
 
-//  cy.url().should('include', 'fashiondays');
-
 //
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test
     return false
   })

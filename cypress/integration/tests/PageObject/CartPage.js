@@ -1,4 +1,7 @@
-class Register{
+const ProductContainer = '.cart-product-box'
+const RemoveProductIcon = '.cart-product-remove'
+const EmptyCartMessage = '.empty-cart-bnpl-toggle h3'
+class CartPage{
 
     
     getProductPrices() {
@@ -16,9 +19,20 @@ class Register{
             return parseFloat(totalPriceText.replace('lei', '').trim());
         });
     }
+    VerifyProductExistInCart(){
+        cy.get(ProductContainer).should("be.visible")
+    }
 
-        
+    ClickRemoveItemFromCart(){
+        cy.get(RemoveProductIcon).click();
+    }
+    verifyEmptyCartMessage(){
+        cy.get(EmptyCartMessage).then(($element) => {
+            const cartText = $element.text().trim();
+            expect(cartText).to.equal("Cosul tau e gol acum, hai sa il umpli cu tot ce vrei sa porti maine!");
+        });
+    }
 
 
 }
-export default new Register();
+export default new CartPage();

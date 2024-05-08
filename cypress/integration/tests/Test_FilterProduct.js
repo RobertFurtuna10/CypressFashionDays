@@ -1,14 +1,15 @@
+import ProductCatalogue from "./PageObject/ProductCatalogue"
 describe('FashionDays Search Functionality', () => {
     
     beforeEach(()=>{
-        cy.visit('https://www.fashiondays.ro/')
+        cy.visit(Cypress.env('url'))
     })
 
-
-
-    it("Filter product by brand", () => {
+    it("Should Filter product by brand", () => {
         
         cy.SearchProduct('Tricou')
+
+        // cy.get("a[data-title='Treninguri']").scrollIntoView()
         
         cy.get('#brandOpt_20743 > .filter-link > .ui-left').as('ColumbiaBrand')
         
@@ -21,49 +22,36 @@ describe('FashionDays Search Functionality', () => {
       
     })
 
-    it('Filter products by largest to smallest prices', () =>{
-     
-        
-        cy.SearchProduct('hanorac')
-        
-        cy.get('.filterDrop').click()
-       
-        cy.get('label[value="lowest_price"]').click()
-        
-        
-        const prices = []
-        
-        cy.wait(2000)
+    it('Should Filter products by largest to smallest prices', () =>{
+      
+       cy.SearchProduct('hanorac')
 
+       ProductCatalogue.ClickFilterDrop("Cel mai mic pret")
 
-        cy.get('.sale-wrapper').each(($el) => {
-            const productPrice = $el.text()
-            const formatPrice = parseInt(productPrice.replace('lei', '').trim())
-            prices.push(formatPrice)
-        }).then(()=>{
-            for (let i = 0; i < prices.length-1; i++) {
-                expect(prices[i]).to.be.at.most(prices[i + 1]); // Verificăm fiecare element cu următorul
-            }
-        })
+       cy.wait(2000)
+
+       ProductCatalogue.GetPriceTextProducts().then((actualPricesText) => {
+        ProductCatalogue.verifyPriceOrderAscending(actualPricesText);
+       })
     })
 
-    it('Filter product by yellow color', () =>{
+    it('Should filter products by yellow color', () =>{
        
         cy.SearchProduct('hanorac')
-       
-        cy.get('[data-gtm-name="YELLOW"]').click({force: true})
+
+        ProductCatalogue.ClickColorFilter('yellow')
        
         cy.VerifyIncludesInUrl('yellow')
 
-
     })
-    it('Filter product by multiple colors', () =>{
+    
+    it('Should Filter product by multiple colors', () =>{
         
         cy.SearchProduct('hanorac')
         
-        cy.get('[data-gtm-name="YELLOW"]').click({force: true})
-        
-        cy.get('[data-gtm-name="BLUE"]').click({force: true})
+        ProductCatalogue.ClickColorFilter('blue')
+
+        ProductCatalogue.ClickColorFilter('yellow')
 
         cy.VerifyIncludesInUrl('yellow').and('include','blue')
 

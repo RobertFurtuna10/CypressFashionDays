@@ -1,0 +1,1 @@
+    export const LogoSite= '.hidden-xs > img';
