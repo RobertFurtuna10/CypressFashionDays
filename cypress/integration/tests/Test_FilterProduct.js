@@ -1,29 +1,25 @@
 import ProductCatalogue from "./PageObject/ProductCatalogue"
 describe('FashionDays Search Functionality', () => {
-    
     beforeEach(()=>{
-        cy.visit(Cypress.env('url'))
+        cy.fixture('DataTest').then(function (data) {
+            this.data = data;
+            cy.visit(Cypress.env('url'));
+            cy.SearchProduct('Tricou')
+        })
     })
+ 
 
-    it("Should Filter product by Columbia brand", () => {
-        
-        cy.SearchProduct('Tricou')
-
-        // cy.get("a[data-title='Treninguri']").scrollIntoView()
-        // cy.wait(2000)
-        
+    it("Should Filter product by Columbia brand", function(){
+    
         ProductCatalogue.selectColumbiaBrand()
-        ProductCatalogue.veirfyNameOfProducts()
+        ProductCatalogue.VerifyNameOfProducts('Columbia')
         
-       
       
     })
 
-    it('Should Filter products by largest to smallest prices', () =>{
-      
-       cy.SearchProduct('hanorac')
+    it('Should Filter products by largest to smallest prices', function(){
 
-       ProductCatalogue.ClickFilterDrop("Cel mai mic pret")
+       ProductCatalogue.ClickFilterDrop(this.data.SmallestPrices)
 
        cy.wait(2000)
 
@@ -32,25 +28,21 @@ describe('FashionDays Search Functionality', () => {
        })
     })
 
-    it('Should filter products by yellow color', () =>{
-       
-        cy.SearchProduct('hanorac')
+    it('Should filter products by yellow color', function(){
 
-        ProductCatalogue.ClickColorFilter('yellow')
+        ProductCatalogue.ClickColorFilter(this.data.Colors.Valid[1])
        
-        cy.VerifyIncludesInUrl('yellow')
+        cy.VerifyIncludesInUrl(this.data.Colors.Valid[1])
 
     })
     
-    it('Should Filter product by multiple colors', () =>{
+    it('Should Filter product by multiple colors', function(){
         
-        cy.SearchProduct('hanorac')
-        
-        ProductCatalogue.ClickColorFilter('blue')
+        ProductCatalogue.ClickColorFilter(this.data.Colors.Valid[0])
 
-        ProductCatalogue.ClickColorFilter('yellow')
+        ProductCatalogue.ClickColorFilter(this.data.Colors.Valid[1])
 
-        cy.VerifyIncludesInUrl('yellow').and('include','blue')
+        cy.VerifyIncludesInUrl(this.data.Colors.Valid[1]).and('include',this.data.Colors.Valid[0])
 
     })
  })

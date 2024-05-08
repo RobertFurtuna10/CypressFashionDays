@@ -52,10 +52,10 @@ class ProductCataloguePage{
     }
 
     selectColumbiaBrand(){
-        cy.get(columbiaBrand).click({force: true})
+        cy.get(columbiaBrand).click({force:true});
     }
-    veirfyNameOfProducts(){
-        cy.get(nameOfProducts).should('contain', 'Columbia')
+    VerifyNameOfProducts(expected){
+        cy.get(nameOfProducts).should('contain',expected)
     }
 }
 

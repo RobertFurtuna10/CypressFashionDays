@@ -2,6 +2,11 @@
   "inexistent_product":"0-",
   "ValidProduct":["blugi","Papuci Nike"],
   "genres":["Femei", "Barbati", "Fete", "Baieti"],
-  "Password":"Parola123"
+  "Password":"Parola123",
+  "SmallestPrices":"Cel mai mic pret",
+  "Colors": {
+    "Valid":["blue","yellow","orange","red","purple","pink","green","black","white"],
+    "Invalid":["ABC","23324","OrBlue","FakBlack","BigPink"]
+  }
   
 }

@@ -1,3 +1,5 @@
+import ProductCatalogue from "./PageObject/ProductCatalogue";
+
 describe('FashionDays Search Functionality', () => {
     
     // Runs before each test
@@ -15,7 +17,7 @@ describe('FashionDays Search Functionality', () => {
         cy.SearchProduct(this.data.ValidProduct[1])
         
         //verify if the results are returned nike 
-        cy.get('.product-card-brand').should('contain', 'Nike');
+        ProductCatalogue.VerifyNameOfProducts('Nike')
     });
     it('Search inexistent product', function()  {
         //search for product
