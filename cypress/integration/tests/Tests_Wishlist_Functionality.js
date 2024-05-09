@@ -1,6 +1,7 @@
 /// <reference types="Cypress" />
 
 import ProductCatalogue from "./PageObject/ProductCatalogue";
+import WishlistPage from "./PageObject/WishlistPage";
 
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
@@ -21,49 +22,63 @@ describe('FashionDays Search Functionality', () => {
             expect(ResultText).to.be.equal(expected_result);
         });
     });
-    it('Test add product to wishlist', () => {
+    it('Test verify that product exist in wishlist', () => {
+        
         cy.SearchProduct('Geanta')
+        
         ProductCatalogue.ClickAddToWishlistByIndex(2)
-        cy.get('#myFirstFav > .vertical-alignment-helper > .modal-dialog > .modal-content > .modal-header > #rce-sent-close > .icon-close-x').click()
-        cy.get('#wishlist-top-menu').click()
-        cy.get("[name='move-to-cart-products']").should("be.visible")
-      
+
+        cy.get("#myFirstFav > .vertical-alignment-helper > .modal-dialog > .modal-content > .modal-header > #rce-sent-close > .icon-close-x").click()
+       
+        ProductCatalogue.ClickOnMyWishlist();
+
+        cy.wait(2000)
+
+        WishlistPage.VerifyProductNameInWishlist('Geanta')
+    
     })
+      
+
 
     it('Test removing product from wishlist', () => {
         // Search for a product and add it to the wishlist
         cy.SearchProduct('Bag');
-        cy.get(".js-add-to-wishlist").eq(2).click();
+      
+        ProductCatalogue.ClickAddToWishlistByIndex(2)
         
         // Close the confirmation message and access the wishlist
         cy.get('#myFirstFav > .vertical-alignment-helper > .modal-dialog > .modal-content > .modal-header > #rce-sent-close > .icon-close-x').click();
-        cy.get('#wishlist-top-menu').click();
+        
+        ProductCatalogue.ClickOnMyWishlist();
         
         // Remove the product from the wishlist and check for the display of a corresponding message
-        cy.get('.wishlist-product-actions > .submit').click();
-        cy.get('.inner-white-box > .row > .col-xs-12 > span').then((element) => {
-            const resultText = element.text().trim().replace(/\s+/g, ' ');
-            const expected_result = "Inca nu ai produse adaugate aici, dar cu siguranta ai de unde alege. Cauta si salveaza-le pe cele pe gustul tau!"
-            expect(resultText).to.equal(expected_result);
-        });
+        WishlistPage.ClickRemoveProduct()
+
+
+        WishlistPage.VerifyEmptyWishlist()
     })
+
     
 
     it('Test viewing similar products from wishlist', () => {
         // Search for a product and add it to the wishlist
         cy.SearchProduct('Bag');
-        cy.get(".js-add-to-wishlist").eq(2).click();
+       
+        ProductCatalogue.ClickAddToWishlistByIndex(2)
         
         // Close the confirmation message and access the wishlist
         cy.get('#myFirstFav > .vertical-alignment-helper > .modal-dialog > .modal-content > .modal-header > #rce-sent-close > .icon-close-x').click();
-        cy.get('#wishlist-top-menu').click();
+    
+        
+        ProductCatalogue.ClickOnMyWishlist();
 
         
         // Access the section of similar products from the wishlist and check their display
-        cy.get('.icon-visual-recomm').click();
+        
+        WishlistPage.ClickOnSimilarProductButton()
 
-        cy.wait(2000)
 
-        cy.get(".similar-products-box").should('be.visible');
+        WishlistPage.VerifyExistsSimilarProductDisplay()
     });
+
 })

@@ -1,6 +1,7 @@
 /// <reference types="Cypress" />
 import CartPage from "./PageObject/CartPage";
 import ProductCatalogue from "./PageObject/ProductCatalogue";
+import ProductPage from "./PageObject/ProductPage";
 describe('FashionDays Search Functionality', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
@@ -10,6 +11,7 @@ describe('FashionDays Search Functionality', () => {
 
     })
     it('Check if i can add to cart a product', () => {
+       
         cy.SearchProduct('ochelari de soare')
         
         cy.selectProductAndAddToCart(1)
@@ -22,6 +24,7 @@ describe('FashionDays Search Functionality', () => {
       
       
       it('Verify add to cart products sum', () => {
+       
         cy.SearchProduct('ceas')
 
         cy.selectProductAndAddToCart(0)
@@ -58,12 +61,24 @@ describe('FashionDays Search Functionality', () => {
       });
 
       it('Test add product to wishlist from my cart ', () => {
+       // type a product
         cy.SearchProduct("ochelari de soare")
-        cy.get("img[class='lazy product-over lazy-not-on-mobile']").eq(0).click();
-        cy.get('#buy-box').click()
-        cy.get('#customer-basket > .container-icon > .icon').click()
-        cy.get('.cart-product-save-to-wishlist').click()
-        cy.get("#prodFavCountHeader").should("have.text","1")
+      
+        //select product form productCatalog by index ,0 is first
+    
+        ProductCatalogue.ClickProductImageByIndex(0)
+   
+        // click add to cart
+        ProductPage.clickAddToCart();
+
+        ProductPage.ClickOnIconCart();
+    
+        // click save to wishlist
+        CartPage.ClickSaveToWishlist()
+     
+        //Verify to exist product in wishlist 
+
+        CartPage.VerifyProductCounterAfterSelect(1)
       });
 
 

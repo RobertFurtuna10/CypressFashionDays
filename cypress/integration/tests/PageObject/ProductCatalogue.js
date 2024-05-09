@@ -7,6 +7,8 @@ import * as locators from '../Utils/WishlistPageLocators'
     const ProductTitleBrand = '.cart-product-box'
     const columbiaBrand = '#brandOpt_20743 > .filter-link > .ui-left'
     const nameOfProducts = '.product-card-brand'
+    const productsImage = 'img[class="lazy product-over lazy-not-on-mobile"]'
+    const wishlistIcon  = '#wishlist-top-menu'
 
 class ProductCataloguePage{
 
@@ -57,6 +59,13 @@ class ProductCataloguePage{
     VerifyNameOfProducts(expected){
         cy.get(nameOfProducts).should('contain',expected)
     }
+    ClickProductImageByIndex(index){
+        cy.get(productsImage).eq(index).click();
+    }
+    ClickOnMyWishlist(){
+        cy.get(wishlistIcon).click({force:true});
+    }
+
 }
 
 export default new ProductCataloguePage();

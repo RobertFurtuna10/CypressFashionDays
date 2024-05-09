@@ -1,6 +1,8 @@
 const ProductContainer = '.cart-product-box'
 const RemoveProductIcon = '.cart-product-remove'
 const EmptyCartMessage = '.empty-cart-bnpl-toggle h3'
+const saveWishlistIcon = '.cart-product-save-to-wishlist'
+const ProductWishlistCounter = '#prodFavCountHeader'
 class CartPage{
 
     
@@ -31,6 +33,12 @@ class CartPage{
             const cartText = $element.text().trim();
             expect(cartText).to.equal("Cosul tau e gol acum, hai sa il umpli cu tot ce vrei sa porti maine!");
         });
+    }
+    ClickSaveToWishlist(){
+        cy.get(saveWishlistIcon).click()
+    }
+    VerifyProductCounterAfterSelect(count){
+        cy.get(ProductWishlistCounter).should("have.text",count)
     }
 
 

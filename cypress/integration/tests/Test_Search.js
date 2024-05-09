@@ -35,7 +35,7 @@ describe('FashionDays Search Functionality', () => {
        
         // Click on page 2 from the search results
         
-        cy.get('#paginationContainerHeader > #paginationLinks > nav > .pagination > :nth-child(3) > .paginationLink').click();
+        ProductCatalogue.ClickPage2();
         
         // Verify if the URL contains the correct page
 
