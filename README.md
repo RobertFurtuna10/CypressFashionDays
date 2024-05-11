@@ -72,7 +72,7 @@ Make sure you have installed the following prerequisites on your development mac
 
 This report outlines the testing conducted on 11 May 2024 and documents all the functionalities that have been thoroughly tested. The report comprises 27 tests, all of which have successfully passed within a total time of 1 minute and 32 sec.
 
-![TestsReport](https://github.com/RobertFurtuna10/CypressFashionDays/blob/main/Screenshot%202024-05-03%20at%2013.23.16.png)
+![TestsReport](https://github.com/RobertFurtuna10/CypressFashionDays/blob/main/test-report.pdf)
 
 # Conclusion
 
