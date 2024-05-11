@@ -1,36 +1,44 @@
 pipeline {
     agent any
-        parameters{
-            string(name:'SPEC',defaultValue:"cypress/integration/**/**",description:"Enter the script path that you want to execute")
-            choice(name:'BROWSER',choice:['chrome','edge','firefox'],description:"Choise the browser where you want to execute your scripts")
-
-        }
-        options{
-            ansiColor('exterm')
-        }
-        stages{
-            stage('Building'){
+    parameters {
+        string(name: 'SPEC', defaultValue: "cypress/integration/**/**", description: "Enter the script path that you want to execute")
+        choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: "Choose the browser where you want to execute your scripts")
+    }
+    options {
+        ansiColor('xterm')
+    }
+    stages {
+        stage('Building') {
+            steps {
                 echo "Building the app"
-            }
-            stage("Testing"){
-                steps{
-                    bat "npn i"
-                    bat "npx cypress run --browser ${Browser} --spec ${SPEC}" 
-                }
-            }
-            stage("Deploying"){
-            echo "Deploy the application"
+                // Adăugați pașii de construire aici, dacă este necesar
             }
         }
-        post{
-            always{
-               publishHTML (target : [allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'reports',
-                    reportFiles: 'index.html',
-                    eportName: 'My Reports',
-                    reportTitles: 'The Reportd'])
+        stage("Testing") {
+            steps {
+                bat "npm i"
+                bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}" 
+            }
+        }
+        stage("Deploying") {
+            steps {
+                echo "Deploy the application"
+                // Adăugați pașii de implementare aici
             }
         }
     }
+    post {
+        always {
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports',
+                reportFiles: 'index.html',
+                reportName: 'My Reports',
+                reportTitles: 'The Reports'
+            ])
+        }
+    }
+}
+
