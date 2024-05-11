@@ -32,6 +32,8 @@ Available in both cloud and on-premise options, FashionDays is the ideal solutio
 - **cypress/**: This is the main directory of the Cypress project.
 - **cypress/fixtures/**: Static test data, such as JSON files, is stored here.
 - **cypress/integration/**: All spec files for tests are stored here. Inside this directory, each subdirectory corresponds to a specific testing module.
+- **cypress/PageObject/**: This directory is typically used to store Page Object Model (POM) files. Page objects represent the pages of FashionDays application and encapsulate their functionality, making tests more modular and easier to maintain.
+- **cypress/Utils/**: This directory contain utility files or helper functions that are used across tests. These utilities include functions for interacting with elements on the page and performes common actions in tests.
 - **cypress/support/**: Custom Cypress commands and other support files are defined here.
 - **cypress/integration/Tests/**: All the tests are stored here.
 - **cypress/reports/**: This directory is where Cypress generates test reports.
