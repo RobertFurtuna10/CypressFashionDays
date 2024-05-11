@@ -3,7 +3,7 @@ import LoginPage from "./PageObject/LoginPage";
 import MainPage from "./PageObject/MainPage";
 import MyAccountPage from "./PageObject/MyAccountPage";
 
-describe('Test Login functionality', () => {
+describe('Login tests suite', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;

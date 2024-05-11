@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 import MainPage from "./PageObject/MainPage";
-describe('FashionDays main page', () => {
+describe('Main Page tests suite', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;

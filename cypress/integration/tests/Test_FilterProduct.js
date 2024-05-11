@@ -1,5 +1,5 @@
 import ProductCatalogue from "./PageObject/ProductCatalogue"
-describe('FashionDays Search Functionality', () => {
+describe('FilterProduct tests suites', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;

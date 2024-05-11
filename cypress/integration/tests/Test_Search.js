@@ -1,6 +1,6 @@
 import ProductCatalogue from "./PageObject/ProductCatalogue";
 
-describe('FashionDays Search Functionality', () => {
+describe('Search tests Suite', () => {
     
     // Runs before each test
     beforeEach(()=> {    

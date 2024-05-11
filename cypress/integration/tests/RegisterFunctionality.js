@@ -1,5 +1,5 @@
 import RegisterPage from "./PageObject/RegisterPage"
-describe('FashionDays main page', () => {
+describe('Register tests suite', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;

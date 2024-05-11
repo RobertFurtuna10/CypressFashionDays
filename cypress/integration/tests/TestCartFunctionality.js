@@ -2,7 +2,7 @@
 import CartPage from "./PageObject/CartPage";
 import ProductCatalogue from "./PageObject/ProductCatalogue";
 import ProductPage from "./PageObject/ProductPage";
-describe('FashionDays Search Functionality', () => {
+describe('Cart tests suit', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;

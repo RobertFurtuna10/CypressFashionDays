@@ -3,7 +3,7 @@
 import ProductCatalogue from "./PageObject/ProductCatalogue";
 import WishlistPage from "./PageObject/WishlistPage";
 
-describe('FashionDays Search Functionality', () => {
+describe('Wishlist tests suit', () => {
     beforeEach(()=>{
         cy.fixture('DataTest').then(function (data) {
             this.data = data;
