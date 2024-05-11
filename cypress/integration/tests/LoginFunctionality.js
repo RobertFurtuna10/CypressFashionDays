@@ -25,14 +25,14 @@ describe('Test Login functionality', () => {
     ForgotPasswordPage.VerifySuccesfullyChangePassword()
     })
 
-    // it('Test Login', function() {
-    //     LoginPage.EnterEmail(this.data.ValidEmail);
-    //     LoginPage.EnterPassword(this.data.Password);
-    //     LoginPage.ClickLogin();
-    //     cy.wait(2000)
-    //     MainPage.ClickMyAccount()
-    //     MyAccountPage.VerifyAccountMenu()
-    // })
+    it('Test Login', function() {
+        LoginPage.EnterEmail(this.data.ValidEmail);
+        LoginPage.EnterPassword(this.data.Password);
+        LoginPage.ClickLogin();
+        cy.wait(2000)
+        MainPage.ClickMyAccount()
+        MyAccountPage.VerifyAccountMenu()
+    })
 
 
 

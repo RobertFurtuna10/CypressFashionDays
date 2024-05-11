@@ -34,15 +34,9 @@ class ForgotPasswordPage{
     }
     VerifySuccesfullyChangePassword()
     {
-        // return cy.get('div .alert-success').should('be.visible')
-
         return cy.get(SuccesfullyMessagePasswordChange).then(function(element){
             const actualText = element.text().trim()
-            console.log(actualText)
-            cy.log(actualText)
            expect(actualText.includes("Parola a fost resetata cu succes! Vei fi redirectionat in shop in cateva secunde.")).to.be.true
-           cy.log(actualText)
-
         })
     }
 
