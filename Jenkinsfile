@@ -13,17 +13,8 @@ pipeline {
         }
         stage("Testing") {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh "npm i"
-                        sh "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
-                    } else if (isWindows()) {
-                        bat "npm i"
-                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
-                    } else {
-                        error "Platform not supported"
-                    }
-                }
+                sh "npm i"
+                sh "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}" 
             }
         }
         stage("Deploying") {
@@ -48,12 +39,5 @@ pipeline {
     }
 }
 
-def isUnix() {
-    return !isWindows()
-}
-
-def isWindows() {
-    return System.properties['os.name'].toLowerCase().contains('windows')
-}
 
 
