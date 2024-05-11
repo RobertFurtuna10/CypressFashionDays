@@ -6,7 +6,8 @@ module.exports = defineConfig({
     MAILOSAUR_API_KEY:"zhEpqXfzdtvVaIbbKf8rzg2vQkh3OnFh",
     //global env 
     url:"https://www.fashiondays.ro/", 
-    registerUrl:"https://www.fashiondays.ro/customer/authentication/register"
+    registerUrl:"https://www.fashiondays.ro/customer/authentication/register",
+    loginUrl:"https://www.fashiondays.ro/customer/authentication"
     
   },
   e2e: {

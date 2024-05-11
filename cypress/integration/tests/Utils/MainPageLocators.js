@@ -5,4 +5,4 @@
     export const customerSupportIcon = '#customer-support'
     export const wishlistIcon = '#wishlist-top-menu'
     export const addToCartIcon = '.icon-fdux_cart'
-    
+    export const MyAcctounIcon = '#customer-account'

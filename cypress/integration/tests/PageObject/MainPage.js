@@ -33,5 +33,8 @@ class MainPage{
     verifyAddToCartIcon(){
         cy.get(locators.addToCartIcon).should('be.visible')
     }
+    ClickMyAccount(){
+        cy.get(locators.MyAcctounIcon).click();
+    }
 }
 export default new MainPage();
