@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
 
-    "test": "npx cypres run",
-    "headTest":"npx cypress run --headed",
+    "tests": "npx cypres run",
+    "headTests":"npx cypress run --headed",
     "SmokeTest":"npx cypress run --spec \"cypress/integration/tests/Test_FashionDays_main_page.js\""
+
   },
   "author": "",
   "license": "ISC",

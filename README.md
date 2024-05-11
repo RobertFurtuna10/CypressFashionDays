@@ -61,12 +61,16 @@ Make sure you have installed the following prerequisites on your development mac
 4. **Run all the tests with html report:**
 
     ```bash
-    npx cypress run
+    npm tests run
     ```
+5. **Run all the tests with html report in headed mode:**
 
+    ```bash
+    npm HeadTests run
+    ```
 # Report 
 
-This report outlines the testing conducted on 3 May 2024 and documents all the functionalities that have been thoroughly tested. The report comprises 23 tests, all of which have successfully passed within a total time of 55.5 seconds.
+This report outlines the testing conducted on 11 May 2024 and documents all the functionalities that have been thoroughly tested. The report comprises 27 tests, all of which have successfully passed within a total time of 1 minute and 32 sec.
 
 ![TestsReport](https://github.com/RobertFurtuna10/CypressFashionDays/blob/main/Screenshot%202024-05-03%20at%2013.23.16.png)
 
