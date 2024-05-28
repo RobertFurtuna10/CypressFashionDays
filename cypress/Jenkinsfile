@@ -30,7 +30,7 @@ pipeline {
                     reportDir: 'reports',
                     reportFiles: 'index.html',
                     eportName: 'My Reports',
-                    reportTitles: 'The Report'])
+                    reportTitles: 'The Reportd'])
             }
         }
     }

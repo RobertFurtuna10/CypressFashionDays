@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter', //for html reports
   env:{
-    MAILOSAUR_API_KEY:"zhEpqXfzdtvVaIbbKf8rzg2vQkh3OnFh",
+    MAILOSAUR_API_KEY:"YROg1fWVotjtdcWl4kjtCoJaNBEAGQdR",
     //global env 
     url:"https://www.fashiondays.ro/", 
     registerUrl:"https://www.fashiondays.ro/customer/authentication/register",
