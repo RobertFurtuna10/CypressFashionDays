@@ -11,20 +11,26 @@ Welcome to the documentation for the automated testing project designed for the 
 
 # Introduction :notebook:
  
-This project aims to implement automated tests for the FashionDays opensource website using Cypress.
-The primary objectives include simulating user interactions on  several functionalities ,such as : main page , wishlist ,cart ,filter product ,search,login and register.
+This project aims to implement automated tests for the FashionDays opensource website using Cypress. The primary objectives include simulating user interactions on several functionalities such as: Main Page, Wishlist, Cart, Filter Product, Search, Login and Register.
 
 - Language:**JavaScript**
 - Editor code:**VsCode**
 - Library:
   - [![Cypress](https://img.shields.io/npm/v/cypress?color=33ff99&label=cypress&logo=cypress&logoColor=33ff99&style=for-the-badge)](https://www.cypress.io)
   - cypress-mochawesome-reporter 3.8.2
-  -[cypress-mailosaur](https://mailosaur.com/)
+  - [cypress-mailosaur](https://mailosaur.com/)
 
 **FashionDays** is a platform tailored for the fashion industry, offering a suite of tools for efficiently managing clothing and accessory businesses. 
 It enables easy product catalog management, inventory control, online store integration, and customer relationship management. 
 The platform also includes order processing, data analytics, and extensive support to aid growing businesses. 
 Available in both cloud and on-premise options, FashionDays is the ideal solution for fashion brands and retailers.
+This project utilizes the Page Object Model (POM).
+
+- **Advantages**: Utilizing POM brings several benefits, including:
+  - **Reusability**: POM methods can be reused across different tests without the need to rewrite code.
+  - **Easy maintenance**: A change in a page requires updating only the corresponding POM file, without affecting other tests.
+  - **Clarity and organization**: POM separates logically the elements from the specific actions of the page, making the code more understandable and maintainable.
+
 
 
 - [Website](https://www.fashiondays.ro/)
@@ -40,10 +46,6 @@ Available in both cloud and on-premise options, FashionDays is the ideal solutio
 - **cypress/integration/Tests/**: All the tests are stored here.
 - **cypress/reports/**: This directory is where Cypress generates test reports.
 
-- Advantages: Utilizing POM brings several benefits, including:
-  - **Reusability**: POM methods can be reused across different tests without the need to rewrite code.
-  - **Easy maintenance**: A change in a page requires updating only the corresponding POM file, without affecting other tests.
-  - **Clarity and organization**: POM separates logically the elements from the specific actions of the page, making the code more understandable and maintainable.
 
 ## Getting Started  :pushpin:
 
@@ -79,7 +81,16 @@ Make sure you have installed the following prerequisites on your development mac
 
 This report outlines the testing conducted on 11 May 2024 and documents all the functionalities that have been thoroughly tested. The report comprises 29 tests, all of which have successfully passed within a total time of 1 minute and 33 sec.
 
-![TestsReport](https://github.com/RobertFurtuna10/CypressFashionDays/blob/main/test-report.pdf)
+![TestsReport](https://github.com/AdrianPricopie/CypressFashionDays/blob/main/ScreenshotsForGit/Report11May.png)
+![TestsReport](https://github.com/AdrianPricopie/CypressFashionDays/blob/main/ScreenshotsForGit/Screenshot%202024-05-11%20at%2018.12.53.png)
+![TestsReport](https://github.com/AdrianPricopie/CypressFashionDays/blob/main/ScreenshotsForGit/Screenshot%202024-05-11%20at%2018.12.59.png)
+
+all the tests are passed 
+
+# Jenkins 
+
+![](https://github.com/AdrianPricopie/CypressFashionDays/blob/main/ScreenshotsForGit/Screenshot%202024-05-11%20at%2018.40.11.png)
+![](https://github.com/AdrianPricopie/CypressFashionDays/blob/main/ScreenshotsForGit/Screenshot%202024-05-11%20at%2018.41.10.png)
 
 # Conclusion
 
