@@ -12,7 +12,7 @@ describe('Login tests suite', () => {
     })
     it('Test change password', function() {
     LoginPage.ClickForgotPassword()
-    ForgotPasswordPage.EnterEmail('0z9bd@wuvxtq9v.mailosaur.net')
+    ForgotPasswordPage.EnterEmail('xcuwg@oljudrdv.mailosaur.net')
     ForgotPasswordPage.ClickSentButton() 
     cy.wait(9000);
     ForgotPasswordPage.CheckReceiveMail().then((email) => {

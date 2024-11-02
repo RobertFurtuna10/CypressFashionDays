@@ -13,7 +13,7 @@ class ForgotPasswordPage{
     cy.contains("Trimite").click()
     }
     CheckReceiveMail(){
-        return cy.mailosaurListMessages("wuvxtq9v")
+        return cy.mailosaurListMessages("oljudrdv")
         .then((result)=>{
           const email =result.items[0];
           expect(email.subject).to.equal("Reseteaza-ti parola Fashion Days");

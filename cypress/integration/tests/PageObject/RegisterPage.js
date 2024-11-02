@@ -27,12 +27,12 @@ class Register{
         cy.get(locators.title).should('have.text','Bine ai venit la FashionDays')
     }
     GenerateRandomEmailAndEnterInField(){
-        cy.mailosaurGenerateEmailAddress("wuvxtq9v").then((emailAddress) => {
+        cy.mailosaurGenerateEmailAddress("oljudrdv").then((emailAddress) => {
             this.EnterEmail(emailAddress)
          });
     }
     checkEmailWithSubject(expectedSubject) {
-        return cy.mailosaurListMessages('wuvxtq9v').then((result) => {
+        return cy.mailosaurListMessages('oljudrdv').then((result) => {
             if (result.items.length === 0) {
                 throw new Error('No email received.');
             }
@@ -42,7 +42,7 @@ class Register{
         });
     }
     checkConfirmationText(confirmationText,genres) {
-        return cy.mailosaurListMessages("wuvxtq9v")
+        return cy.mailosaurListMessages("oljudrdv")
             .then((result) => {
                 if (result.items.length === 0) {
                     throw new Error('No email received.');
