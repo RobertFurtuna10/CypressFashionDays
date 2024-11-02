@@ -27,11 +27,11 @@ describe('Cart tests suit', () => {
        
         cy.SearchProduct('ceas')
 
-        cy.selectProductAndAddToCart(0)
+        cy.selectProductAndAddToCart(2)
         
         cy.SearchProduct('geanta'); // Redeschidem pagina de start pentru a adăuga un alt produs
 
-        cy.selectProductAndAddToCart(1)
+        cy.selectProductAndAddToCart(3)
       
         ProductCatalogue.ClickCartIcon();
 
@@ -40,7 +40,17 @@ describe('Cart tests suit', () => {
         const totalPrice = CartPage.getTotalPrice();
 
         totalPrice.then(actualTotalPrice => {
+          // Log the actual total price for debugging
+          cy.log('Actual Total Price: ', actualTotalPrice);
+          cy.log('Product Prices: ', productPrices);
+  
+          // Calculate expected total price
           const expectedTotalPrice = productPrices.reduce((acc, curr) => acc + curr, 0);
+  
+          // Log expected total price for debugging
+          cy.log('Expected Total Price: ', expectedTotalPrice);
+  
+          // Assert the total price
           expect(actualTotalPrice).to.equal(expectedTotalPrice);
       });
 
@@ -80,7 +90,6 @@ describe('Cart tests suit', () => {
 
         CartPage.VerifyProductCounterAfterSelect(1)
       });
-
 
 
 });
