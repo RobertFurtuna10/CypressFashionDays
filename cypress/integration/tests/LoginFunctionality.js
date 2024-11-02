@@ -3,17 +3,17 @@ import LoginPage from "./PageObject/LoginPage";
 import MainPage from "./PageObject/MainPage";
 import MyAccountPage from "./PageObject/MyAccountPage";
 
-describe("Login tests suite", () => {
-  beforeEach(() => {
-    cy.fixture("DataTest").then(function (data) {
-      this.data = data;
-      cy.visit(Cypress.env("loginUrl"));
-    });
-  });
-  it("Test change password", function () {
-    LoginPage.ClickForgotPassword();
-    ForgotPasswordPage.EnterEmail("pm2w7j@oljudrdv.mailosaur.net");
-    ForgotPasswordPage.ClickSentButton();
+describe('Login tests suite', () => {
+    beforeEach(()=>{
+        cy.fixture('DataTest').then(function (data) {
+            this.data = data;
+            cy.visit(Cypress.env("loginUrl"));
+        })
+    })
+    it('Test change password', function() {
+    LoginPage.ClickForgotPassword()
+    ForgotPasswordPage.EnterEmail('0z9bd@wuvxtq9v.mailosaur.net')
+    ForgotPasswordPage.ClickSentButton() 
     cy.wait(9000);
     ForgotPasswordPage.CheckReceiveMail().then((email) => {
       ForgotPasswordPage.processEmailAndVisitResetPasswordLink(email);
